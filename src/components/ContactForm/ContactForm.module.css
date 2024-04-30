@@ -1,0 +1,63 @@
+.form {
+    background-color: white;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 2px 8px 15px #00000050;
+}
+
+.inputTitle {
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    line-height: 1.10;
+    margin-top: 10px;
+}
+
+.containerInput {
+    position: relative;
+}
+
+.input {
+    width: 340px;
+    font-size: 18px;
+    border: 1px solid #8d9292;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 5px 30px;
+}
+
+.iconUser,
+.iconPhone {
+    fill: #7e7e7e;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.12;
+    text-align: left;
+    margin: 0;
+}
+
+.button {
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    cursor: pointer;
+    width: 150px;
+    margin-left: auto;
+    margin-top: 15px;
+}

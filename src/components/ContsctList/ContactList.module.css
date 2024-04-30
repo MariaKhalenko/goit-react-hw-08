@@ -1,0 +1,15 @@
+.contactList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+}
+
+.textMessage {
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.10;
+    text-align: center;
+    margin-bottom: 25px;
+}

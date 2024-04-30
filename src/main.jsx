@@ -1,18 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { HelmetProvider } from 'react-helmet-async';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { HelmetProvider } from "react-helmet-async";
+import Modal from "react-modal";
 
-import App from './components/App.jsx';
+Modal.setAppElement("#root");
 
-import { store, persistor } from './redux/store.js';
+import App from "./components/App.jsx";
 
-import './normalize.css';
-import './index.css';
+import { store, persistor } from "./redux/store.js";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import "./index.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
