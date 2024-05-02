@@ -1,0 +1,10 @@
+.header {
+    background-color: #00afd7;;
+    box-shadow: 10px 15px 19px -4px;
+    border-radius: 5px;
+    border: solid 1px #2e879b;
+    padding: 25px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+   }

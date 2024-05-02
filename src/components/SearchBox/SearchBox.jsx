@@ -12,7 +12,7 @@ function SearchBox() {
   };
 
   return (
-    <div>
+    <div className={css.searchBox}>
       <label className={css.searchTitle}>Find contacts by name or number</label>
       <input
         className={css.inputSearch}

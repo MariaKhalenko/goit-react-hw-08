@@ -16,7 +16,7 @@
     "@mui/material": "^5.15.15",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
-    "clsx": "^2.1.0",
+    "clsx": "^2.1.1",
     "formik": "^2.4.6",
     "modern-normalize": "^2.0.0",
     "nanoid": "^5.0.5",

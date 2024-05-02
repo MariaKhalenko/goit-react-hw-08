@@ -1,16 +1,28 @@
-.userMenu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+.helloUser {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5x;
 }
-
-.username {
+.btn {
+  background-color: #d8d0d0;
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: none;
+  color: #000000;
   font-size: 18px;
   font-weight: 600;
-  display: none;
-  @media (768px<=width) {
-    display: block;
-  }
+  letter-spacing: 0.5px;
 }
 
+.btn:hover {
+  background-color: #3f3c3c;
+  color: #ffffff;
+}
+
+.containerHello {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+ 

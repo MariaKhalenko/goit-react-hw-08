@@ -21,7 +21,7 @@ const Contacts = () => {
 
   return (
     <>
-      <DocumentTitle>Your contacts</DocumentTitle>
+      <DocumentTitle>Contacts</DocumentTitle>
       <div>
         <div>
           <ContactForm />

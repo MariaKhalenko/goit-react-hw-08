@@ -1,0 +1,24 @@
+.containerNav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+
+.navlink {
+    background-color: #d8d0d0;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+
+.active,
+.navlink:hover {
+    background-color: #3f3c3c;
+    color: #ffffff;
+}

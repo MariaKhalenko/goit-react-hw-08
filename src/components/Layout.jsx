@@ -4,10 +4,9 @@ import AppHeader from "./AppBar/AppBar";
 const Layout = ({ children }) => {
   return (
     <>
-      <header>
-        <AppHeader />
-      </header>
-      <div style={{ maxWidth: "lg", margin: "0 auto", padding: "0 20px" }}>
+      <AppHeader />
+
+      <div>
         <main>
           {children}
           <Toaster position="top-right" />
