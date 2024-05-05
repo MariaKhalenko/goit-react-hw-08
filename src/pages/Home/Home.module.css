@@ -1,0 +1,16 @@
+.homeContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+.homeWelcome {
+    margin: 30px 0;
+    font-size: 45px;
+}
+
+.iconTitle {
+    position: relative;
+    top: 6px;
+}

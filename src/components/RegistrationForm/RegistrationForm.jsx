@@ -4,6 +4,14 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { register } from "../../redux/auth/operations";
 import { toast } from "react-hot-toast";
+import css from "./RegistrationForm.module.css";
+import {
+  FaEnvelope,
+  FaUserLarge,
+  FaRegEye,
+  FaRegEyeSlash,
+  FaLock,
+} from "react-icons/fa6";
 
 const INITIAL_FORM_DATA = {
   name: "",
@@ -21,13 +29,13 @@ const RegistrationForm = () => {
 
   const UserRegisterSchema = Yup.object().shape({
     name: Yup.string()
-      .matches(/^[A-Za-z]+$/, "Name must contain only letters")
+      .matches(/^[A-Za-z\s]+$/, "Name must contain only letters")
       .min(3, "Must be at least 3 characters")
       .max(50, "Must be 50 characters or less")
-      .required("Enter name"),
-    email: Yup.string().email("Invalid email").required("Email is required!"),
+      .required("Enter name!"),
+    email: Yup.string().email("Invalid email").required("Enter email!"),
     password: Yup.string()
-      .required("Password is required!")
+      .required("Enter password!")
       .min(5, "Password must be at least 5 characters!")
       .max(15, "Password must be at most 15 characters!"),
   });
@@ -56,59 +64,73 @@ const RegistrationForm = () => {
   });
 
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
-          <label>Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Username"
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.name && formik.errors.name && (
-            <div>{formik.errors.name}</div>
+    <form className={css.registerForm} onSubmit={formik.handleSubmit}>
+      <div className={css.containerForm}>
+        <label className={css.inputTitle}>Name</label>
+        <input
+          className={css.input}
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Username"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />{" "}
+        <FaUserLarge className={css.iconRegister} size="17" />
+        {formik.touched.name && formik.errors.name && (
+          <div className={css.errorMessage}>{formik.errors.name}</div>
+        )}
+      </div>
+      <div className={css.containerForm}>
+        <label className={css.inputTitle}>Email</label>
+        <input
+          className={css.input}
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <FaEnvelope className={css.iconRegister} size="18" />
+        {formik.touched.email && formik.errors.email && (
+          <div className={css.errorMessage}>{formik.errors.email}</div>
+        )}
+      </div>
+      <div className={css.containerForm}>
+        <label className={css.inputTitle}>Password</label>
+        <input
+          className={css.input}
+          type={showPassword ? "text" : "password"}
+          id="password"
+          name="password"
+          placeholder="Password"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />{" "}
+        <FaLock className={css.iconRegister} size="17" />
+        {formik.touched.password && formik.errors.password && (
+          <div className={css.errorMessage}>{formik.errors.password}</div>
+        )}
+        <button
+          className={css.btnIcons}
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          {showPassword ? (
+            <FaRegEye className={css.iconsPass} />
+          ) : (
+            <FaRegEyeSlash className={css.iconsPass} />
           )}
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.email && formik.errors.email && (
-            <div>{formik.errors.email}</div>
-          )}
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type={showPassword ? "text" : "password"}
-            id="password"
-            name="password"
-            placeholder="Password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.password && formik.errors.password && (
-            <div>{formik.errors.password}</div>
-          )}
-          <button type="button" onClick={() => setShowPassword(!showPassword)}>
-            {showPassword ? "Hide" : "Show"} Password
-          </button>
-        </div>
-        <button type="submit">Register</button>
-      </form>
-    </div>
+        </button>
+      </div>
+      <button className={css.button} type="submit">
+        Register
+      </button>
+    </form>
   );
 };
 

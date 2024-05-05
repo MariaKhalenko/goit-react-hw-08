@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
       <div>
         <main>
           {children}
-          <Toaster position="top-right" />
+          <Toaster position="top-center" />
         </main>
       </div>
     </>

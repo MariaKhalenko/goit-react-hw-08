@@ -3,7 +3,8 @@ import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
 import * as Yup from "yup";
-
+import { FaEnvelope, FaRegEye, FaRegEyeSlash, FaLock } from "react-icons/fa6";
+import css from "./LoginForm.module.css";
 import { toast } from "react-hot-toast";
 
 const INITIAL_FORM_DATA = {
@@ -16,9 +17,9 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const UserLoginSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email").required("Email is required!"),
+    email: Yup.string().email("Invalid email").required("Enter email!"),
     password: Yup.string()
-      .required("Password is required!")
+      .required("Enter password!")
       .min(5, "Password must be at least 5 characters!")
       .max(15, "Password must be at most 15 characters!"),
   });
@@ -46,47 +47,56 @@ const LoginForm = () => {
   });
 
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.email && formik.errors.email && (
-            <div>{formik.errors.email}</div>
-          )}
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type={showPassword ? "text" : "password"}
-            id="password"
-            name="password"
-            placeholder="Password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.password && formik.errors.password && (
-            <div>{formik.errors.password}</div>
-          )}
-          <button
-            type="button"
-            onClick={() => setShowPassword((prevState) => !prevState)}
-          >
-            {showPassword ? "Hide" : "Show"} Password
-          </button>
-        </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <form className={css.loginForm} onSubmit={formik.handleSubmit}>
+      <div className={css.containerForm}>
+        <label className={css.inputTitle}>Email</label>
+        <input
+          className={css.input}
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />{" "}
+        <FaEnvelope className={css.iconLogin} size="18" />
+        {formik.touched.email && formik.errors.email && (
+          <div className={css.errorMessage}>{formik.errors.email}</div>
+        )}
+      </div>
+      <div className={css.containerForm}>
+        <label className={css.inputTitle}>Password</label>
+        <input
+          className={css.input}
+          type={showPassword ? "text" : "password"}
+          id="password"
+          name="password"
+          placeholder="Password"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />{" "}
+        <FaLock className={css.iconLogin} size="17" />
+        {formik.touched.password && formik.errors.password && (
+          <div className={css.errorMessage}>{formik.errors.password}</div>
+        )}
+        <button
+          className={css.btnIcons}
+          type="button"
+          onClick={() => setShowPassword((prevState) => !prevState)}
+        >
+          {showPassword ? (
+            <FaRegEye className={css.iconsPass} />
+          ) : (
+            <FaRegEyeSlash className={css.iconsPass} />
+          )}{" "}
+        </button>
+      </div>
+      <button className={css.button} type="submit">
+        Login
+      </button>
+    </form>
   );
 };
 

@@ -1,18 +1,18 @@
-import { Suspense, lazy, useEffect } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { refresh } from '../redux/auth/operations';
-import { useAuth } from '../hooks';
+import { Suspense, lazy, useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { refresh } from "../redux/auth/operations";
+import { useAuth } from "../hooks";
 
-const Home = lazy(() => import('../pages/Home'));
-const Login = lazy(() => import('../pages/Login'));
-const Contacts = lazy(() => import('../pages/Contacts'));
-const Register = lazy(() => import('../pages/Register'));
+const Home = lazy(() => import("../pages/Home/Home"));
+const Login = lazy(() => import("../pages/Login"));
+const Contacts = lazy(() => import("../pages/Contacts"));
+const Register = lazy(() => import("../pages/Register"));
 
-import Layout from './Layout';
-import Loader from './Loader/Loader';
-import RestrictedRoute from './RestrictedRoute';
-import PrivateRoute from './PrivateRoute';
+import Layout from "./Layout";
+import Loader from "./Loader/Loader";
+import RestrictedRoute from "./RestrictedRoute";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   const dispatch = useDispatch();
