@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { deleteContact, editContact } from "../../redux/contacts/operations";
